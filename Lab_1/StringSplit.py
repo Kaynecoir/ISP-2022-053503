@@ -3,9 +3,9 @@ import re
 from statistics import median
 
 
-class SplitW():
+class SplitW:
     ''' Class to split line on words '''
-    splitters: str = r"\, |\. |\; |\! |\? |\... |\ |\!|\.|\?|\...|\,|\;"
+    Symbols: str = r"\, |\. |\; |\! |\? |\... |\ |\!|\.|\?|\...|\,|\;"
     def __init__(self, input_string: str, top_k: int, n_grams: int) -> None:
         self.input_string: str = input_string
         self.top_k: int = top_k
@@ -15,7 +15,7 @@ class SplitW():
 
     def count_words(self) -> None:
         ''' Count of words '''
-        self.splitted_string = re.split(self.splitters, self.input_string)
+        self.splitted_string = re.split(self.Symbols, self.input_string)
         self.check_empty()
         for arr_element in self.splitted_string:
             if arr_element != 0 :
@@ -31,11 +31,13 @@ class SplitW():
 
     def check_empty(self) -> None:
         ''' Check string on empty elements '''
+        '''__contains__(item) предназначен для проверки принадлежности элемента с помощью in и not in '''
         if self.splitted_string.__contains__('') :
             self.splitted_string.remove('')
 
     def find_median(self) -> float:
         ''' Median value of the words in the statement '''
+        ''' values() returns a list of all the values available in a given dictionary '''
         return median(self.dictionary.values())
 
     def find_average(self) -> float:
@@ -55,7 +57,7 @@ class SplitL(SplitW):
 
     def create_dictionary(self) -> None:
         ''' Creating and using dictionary '''
-        self.splitted_string = re.split(self.splitters, self.input_string)
+        self.splitted_string = re.split(self.Symbols, self.input_string)
         self.check_empty()
         output: str = "".join(self.splitted_string)
         for i in range(0, len(output) - self.n_grams + 1, 1):
