@@ -1,6 +1,6 @@
 ''' Lab_1 '''
 import os
-from splitter import Words, Letters
+from StringSplit import SplitW, SplitL
 
 
 def fuct(number_of_ngrams: int, top_k: int):
