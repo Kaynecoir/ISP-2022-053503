@@ -1,1 +1,1 @@
-gds.kjgvkudfagiuba
+Python has been ported to a number of specialized and/or older platforms, listed below in alphabetical order. Note that these ports often lag well behind the latest Python release.
