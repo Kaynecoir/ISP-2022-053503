@@ -1,13 +1,13 @@
-# import Serelis
 
-class JSON:
+
+class TOML:
     def load(self, filename):
         with open(filename, 'r+') as file:
             obj = self.loads(file.read())
             return obj
     
     def loads(self, str):
-        ind, obj = self.get_a(str)
+        ind, obj = self.get_a(str, 0)
         return obj
 
     def dump(self, obj, filename):
@@ -29,14 +29,14 @@ class JSON:
         raise ValueError("Error")
 
     def convert_to_simple(self, value) -> str:
-        result = ''
+        result = ""
         if isinstance(value, type(None)):
-            result += 'null'
+            result += "{}"
         elif isinstance(value, bool):
             if value:
-                result += 'true'
+                result += "true"
             else:
-                result += 'false'
+                result += "false"
 
         elif isinstance(value, (int, float)):
             result += str(value)
@@ -45,51 +45,79 @@ class JSON:
         return result
     
     def convert_to_collections(self, value, tab) -> str:
-        result = ''
-        result += '\n' + ' ' * tab + '[\n'
+        result = ""
+        result += "[\n"
         i = 0
         for v in value:
             if i:
-                result += ',\n'
+                result += ",\n"
             result += " " * tab + self.convert_to_str(v, tab+2)
             i+=1
-        result += '\n' + " " * tab + ']'
+        result += "\n" + " " * (tab-2) + "]"
         return result
 
     def convert_to_dictionary(self, value_dict, tab) -> str:
-        result = ''
-        result += '\n' + ' ' * tab + '{\n'
+        result = ""
+        if tab:
+            result += "{\n"
         i = 0
         for _key, _value in value_dict.items():
-            if i:
-                result += ',\n'
-            result += " " * tab + "\"" + str(_key) + "\": " + str(self.convert_to_str(_value, tab+2))
+            if i and tab:
+                result += ",\n"
+            elif i:
+                result += "\n"
+            result += " " * tab + "\"" + str(_key) + "\" = " + str(self.convert_to_str(_value, tab+2))
             i+=1
-        result += '\n' + ' ' * tab + '}'
+        if tab:
+            result += "\n" + " " * (tab-2) + "}"
         return result
 
     def convert_cl_to_dictionary(self, value, tab) -> str:
         value_dict = value.__dict__
         return self.convert_to_dictionary(value_dict, tab)
 
-    def get_a(self, value):
+    def get_a(self, value, tab):
         k: int = 1
-        if value[0] == "{":
+        if tab == 0:
             n_dict = {}
             key_ = True
             key_val = ""
             value_val = None
-            while k != len(value) and value[k] != "}":
-                if value[k] == ":":
+            k -= 1
+            while k < len(value):
+                if value[k] == "=":
                     key_ = False
                 if self.step(value[k]) or self.stepdig(value[k-1 : k+1]) or self.stepdat(value[k : k+4]):
                     ind = 0
                     if key_:
                         if key_val != "":
                             n_dict[key_val] = value_val
-                        ind, key_val = self.get_a(value[k : ])
+                        ind, key_val = self.get_a(value[k : ], tab+1)
                     else:
-                        ind, value_val = self.get_a(value[k : ])
+                        ind, value_val = self.get_a(value[k : ], tab+1)
+                    k += ind
+                    key_ = True
+                k += 1
+            if key_val != "":
+                n_dict[key_val] = value_val
+            return k, n_dict 
+
+        if value[0] == "{":
+            n_dict = {}
+            key_ = True
+            key_val = ""
+            value_val = None
+            while k != len(value) and value[k] != "}":
+                if value[k] == "=":
+                    key_ = False
+                if self.step(value[k]) or self.stepdig(value[k-1 : k+1]) or self.stepdat(value[k : k+4]):
+                    ind = 0
+                    if key_:
+                        if key_val != "":
+                            n_dict[key_val] = value_val
+                        ind, key_val = self.get_a(value[k : ], tab+1)
+                    else:
+                        ind, value_val = self.get_a(value[k : ], tab+1)
                     k += ind
                     key_ = True
                 k += 1
@@ -102,7 +130,7 @@ class JSON:
             while k != len(value) and value[k] != "]":
                 if self.step(value[k]) or self.stepdig(value[k-1 : k+1]) or self.stepdat(value[k : k+4]):
                     ind = 0
-                    ind, value_val = self.get_a(value[k : ]) 
+                    ind, value_val = self.get_a(value[k : ], tab+1) 
                     n_col.append(value_val)
                     k += ind
                 k += 1
