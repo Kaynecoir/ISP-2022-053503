@@ -2,7 +2,7 @@
 
 class TOML:
     def load(self, filename):
-        with open(filename, 'r+') as file:
+        with open(filename + ".toml", 'r+') as file:
             obj = self.loads(file.read())
             return obj
     
@@ -11,7 +11,7 @@ class TOML:
         return obj
 
     def dump(self, obj, filename):
-        with open(filename, 'w+') as file:
+        with open(filename + ".toml", 'w+') as file:
             file.write(self.dumps(obj)) 
 
     def dumps(self, obj):

@@ -1,51 +1,14 @@
-import json
+from Fabr_Ser import Fabric
 
-class Ser:
-	def dump(self, obj: object, fn: string):
-		pass
-	def dumps(self, obj: object, fn: string):
-		pass
-	def load(self, fn: string):
-		pass
-	def loads(self, fn: string):
-		pass
+f = Fabric()
 
+a1 = {"1": 12, "23": 34, "43": 123}
+a2 = [None, None]
+a3 = ["asd", "hgtj", "gh"]
+a4 = list(range(3))
+a5 = True
+a6 = {"cv": 34, "o": {0: {"5": []}}, "00": a1}
+a7 = [{}, {"a": 4.5}]
+a = {"a": a1, "B": a2, 3: a3, "four": a4, "v": a5, "6": a6, "sin": a7}
 
-class s_json(Ser):
-	def dump(self, obj: object, fn: string):
-		json.dump(obj, fn)
-	def dumps(self, obj: object, fn: string):
-		json.dumps(obj)
-	def load(self, fn: string):
-		return json.load(fn)
-	def loads(self, fn: string):
-		return json.loads(fn)
-'''
-class s_yaml(Ser):
-	def dump(self, obj: object, fn: string):
-		pass
-	def dumps(self, obj: object, fn: string):
-		pass
-	def load(self, fn: string):
-		pass
-	def loads(self, fn: string):
-		pass
-
-class s_toml(Ser):
-	def dump(self, obj: object, fn: string):
-		pass
-	def dumps(self, obj: object, fn: string):
-		pass
-	def load(self, fn: string):
-		pass
-	def loads(self, fn: string):
-		pass
-'''
-'''
-class CreatJSON
-class CreatTOML
-class CreatYAML
-'''
-
-s = s_json()
-s.
+f.dump(a, "file")

@@ -2,7 +2,7 @@
 
 class JSON:
     def load(self, filename):
-        with open(filename, 'r+') as file:
+        with open(filename + ".json", 'r+') as file:
             obj = self.loads(file.read())
             return obj
     
@@ -11,7 +11,7 @@ class JSON:
         return obj
 
     def dump(self, obj, filename):
-        with open(filename, 'w+') as file:
+        with open(filename + ".json", 'w+') as file:
             file.write(self.dumps(obj)) 
 
     def dumps(self, obj):
@@ -46,26 +46,26 @@ class JSON:
     
     def convert_to_collections(self, value, tab) -> str:
         result = ''
-        result += '\n' + ' ' * tab + '[\n'
+        result += '\n' + '  ' * tab + '[\n'
         i = 0
         for v in value:
             if i:
                 result += ',\n'
-            result += " " * tab + self.convert_to_str(v, tab+2)
+            result += "  " * tab + self.convert_to_str(v, tab+2)
             i+=1
-        result += '\n' + " " * tab + ']'
+        result += '\n' + "  " * tab + ']'
         return result
 
     def convert_to_dictionary(self, value_dict, tab) -> str:
         result = ''
-        result += '\n' + ' ' * tab + '{\n'
+        result += '\n' + '  ' * tab + '{\n'
         i = 0
         for _key, _value in value_dict.items():
             if i:
                 result += ',\n'
-            result += " " * tab + "\"" + str(_key) + "\": " + str(self.convert_to_str(_value, tab+2))
+            result += "  " * tab + "\"" + str(_key) + "\": " + str(self.convert_to_str(_value, tab+2))
             i+=1
-        result += '\n' + ' ' * tab + '}'
+        result += '\n' + '  ' * tab + '}'
         return result
 
     def convert_cl_to_dictionary(self, value, tab) -> str:

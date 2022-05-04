@@ -3,7 +3,7 @@
 class YAML:
     # nu na
     def load(self, filename):
-        with open(filename, "r+") as file:
+        with open(filename + ".yaml", "r+") as file:
             obj = self.loads(file.read())
             return obj
     # nu na
@@ -12,7 +12,7 @@ class YAML:
         return 
 
     def dump(self, obj, filename):
-        with open(filename, 'w+') as file:
+        with open(filename + ".yaml", 'w+') as file:
             file.write(self.dumps(obj)) 
 
     def dumps(self, obj):
