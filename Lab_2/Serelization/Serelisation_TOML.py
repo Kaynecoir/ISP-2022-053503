@@ -2,17 +2,26 @@
 
 class TOML:
     def load(self, filename):
-        with open(filename + ".toml", 'r+') as file:
-            obj = self.loads(file.read())
-            return obj
+        if filename[-5 : ] == ".toml":
+            with open(filename, 'r+') as file:
+                obj = self.loads(file.read())
+                return obj
+        else:
+            with open(filename + ".toml", 'r+') as file:
+                obj = self.loads(file.read())
+                return obj
     
     def loads(self, str):
         ind, obj = self.get_a(str, 0)
         return obj
 
     def dump(self, obj, filename):
-        with open(filename + ".toml", 'w+') as file:
-            file.write(self.dumps(obj)) 
+        if filename[-5 : ] == ".toml":
+            with open(filename, 'w+') as file:
+                file.write(self.dumps(obj)) 
+        else:
+            with open(filename + ".toml", 'w+') as file:
+                file.write(self.dumps(obj)) 
 
     def dumps(self, obj):
         return self.convert_to_str(obj, 0)
@@ -27,6 +36,7 @@ class TOML:
         elif isinstance(type(value), type):
             return self.convert_cl_to_dictionary(value, tab)
         raise ValueError("Error")
+        
 
     def convert_to_simple(self, value) -> str:
         result = ""

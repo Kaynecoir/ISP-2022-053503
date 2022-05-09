@@ -2,17 +2,26 @@
 
 class JSON:
     def load(self, filename):
-        with open(filename + ".json", 'r+') as file:
-            obj = self.loads(file.read())
-            return obj
+        if filename[-5 : ] == ".json":
+            with open(filename, 'r+') as file:
+                obj = self.loads(file.read())
+                return obj
+        else:
+            with open(filename + ".json", 'r+') as file:
+                obj = self.loads(file.read())
+                return obj
     
     def loads(self, str):
         ind, obj = self.get_a(str)
         return obj
 
     def dump(self, obj, filename):
-        with open(filename + ".json", 'w+') as file:
-            file.write(self.dumps(obj)) 
+        if filename[-5 : ] == ".json":
+            with open(filename, 'w+') as file:
+                file.write(self.dumps(obj)) 
+        else:
+            with open(filename + ".json", 'w+') as file:
+                file.write(self.dumps(obj)) 
 
     def dumps(self, obj):
         return self.convert_to_str(obj, 0)

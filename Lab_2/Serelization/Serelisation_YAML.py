@@ -12,8 +12,12 @@ class YAML:
         return 
 
     def dump(self, obj, filename):
-        with open(filename + ".yaml", 'w+') as file:
-            file.write(self.dumps(obj)) 
+        if filename[-5 : ] == ".yaml":
+            with open(filename, 'w+') as file:
+                file.write(self.dumps(obj)) 
+        else:
+            with open(filename + ".yaml", 'w+') as file:
+                file.write(self.dumps(obj)) 
 
     def dumps(self, obj):
         return self.convert_to_str(obj, 0)
