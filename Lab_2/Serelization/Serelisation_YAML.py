@@ -5,11 +5,11 @@ class YAML:
     def load(self, filename):
         with open(filename + ".yaml", "r+") as file:
             obj = self.loads(file.read())
-            return obj
+            return None
     # nu na
     def loads(self, str):
         self.get_a(str, 0)
-        return 
+        return ""
 
     def dump(self, obj, filename):
         if filename[-5 : ] == ".yaml":
