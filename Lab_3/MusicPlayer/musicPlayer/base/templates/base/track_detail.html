@@ -1,0 +1,45 @@
+{% extends 'base/base.html' %}
+{%  block content %}
+
+<div id="UpperHeader">
+    {% if user.is_authenticated %}
+        <p>Приветствую, {{user.username}}!</p>
+        <a href="{% url 'logout' %}">Выйти</a>
+    {% else %}
+        <a href="{% url 'login' %}">Логин</a>
+    {% endif %}
+</div>  
+<hr>
+
+
+<h1>Музыкальный проигрыватель</h1>
+<a href="{% url 'home' %}">Назад на Главную</a>
+<table class="CenterTable">
+    <tr>
+        <td>Название:</td>
+        <td>{{track.title}}</td>
+    </tr>
+    <tr>
+        <td>Исполнитель:</td>
+        <td>{{track.artist}}</td>
+    </tr>
+    <tr>
+        <td>Жанр:</td>
+            {%for item in track.genre.all%}
+            <td>{{item}};</td>
+            {% endfor %}
+    </tr>
+    <tr>
+        <td>Описание:</td>
+        {% if track.description %}
+            <td>{{track.description}}</td>
+        {% else %}
+            <td>Отсутсвует.</td>
+        {% endif %}
+    </tr>
+</table>    
+
+<div class="audioDiv" >
+    <audio src="/static/musics/{{track.audioFile}}" type="audio/mpeg" controls></audio>
+</div>  
+{% endblock content %} 

@@ -1,0 +1,21 @@
+{% extends 'base/base.html' %}
+{%  block content %}
+
+<div id="UpperHeader">
+    {% if request.user.is_authenticated %}
+        <p>Welcome, {{request.user}}!</p>
+        <a href="{% url 'logout' %}">Выйти</a>
+    {% else %}
+        <a href="{% url 'login' %}">Логин</a>
+    {% endif %}
+</div>  
+<hr>
+<a href="{%url 'home' %}">Назад на Главную</a>
+<div id="DeleteDiv">
+    <form method="POST">
+        {% csrf_token %}
+        <p>Вы уверены, что хотите удалить этот трек?</p>
+        <input type="submit" value="Удалить" />
+    </form>
+</div>
+{% endblock content %}

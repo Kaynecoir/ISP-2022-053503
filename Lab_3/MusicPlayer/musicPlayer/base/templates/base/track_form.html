@@ -1,0 +1,23 @@
+{% extends 'base/base.html' %}
+{% block content %}
+
+    <div id="UpperHeader">
+        {% if request.user.is_authenticated %}
+            <p>Приветствую, {{user.username}}!</p>
+            <a href="{% url 'logout' %}">Выйти</a>
+        {% else %}
+            <a href="{% url 'login' %}">Логин</a>
+        {% endif %}
+    </div>  
+    <hr>
+
+    <h1>MusicPlayer</h1>
+    <a href="{% url 'home' %}">Назад на Главную</a>
+    <div id="FormDiv">
+        <form method="POST" action="">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+{% endblock content %}
