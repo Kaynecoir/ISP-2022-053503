@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, UserManager
 
 
 class Genre(models.Model):
@@ -11,7 +11,6 @@ class Genre(models.Model):
 
 class Track(models.Model):
     title = models.CharField(max_length=256)
-    user = models.ManyToManyField(User)
     audioFile = models.FileField()
     artist = models.CharField(max_length=256)
     genre = models.ManyToManyField(Genre)
@@ -23,3 +22,26 @@ class Track(models.Model):
 
     def get_path(self):
         return self.audioFile
+
+
+class Listener(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    track_list = models.ManyToManyField(Track, null=True, )
+
+    def __unicode__(self):
+        return self.user
+
+    class Meta:
+        verbose_name = 'Listener'
+        verbose_name_plural = 'Listeners'
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    avatar = models.ImageField(upload_to='images/users', verbose_name='Image')
+
+    def __unicode__(self):
+        return self.user
+
+    class Meta:
+        verbose_name = 'Profile'
+        verbose_name_plural = 'Profiles'

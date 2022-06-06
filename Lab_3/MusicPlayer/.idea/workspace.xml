@@ -1,11 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ba3d5601-085f-470a-b644-892bdb93bb88" name="Changes" comment="" />
+    <list default="true" id="ba3d5601-085f-470a-b644-892bdb93bb88" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/musicPlayer/base/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/musicPlayer/base/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/musicPlayer/base/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/musicPlayer/base/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/musicPlayer/base/static/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/musicPlayer/base/static/base.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/musicPlayer/base/templates/base/base.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/musicPlayer/base/templates/base/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/musicPlayer/base/templates/base/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/musicPlayer/base/templates/base/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/musicPlayer/base/templates/base/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/musicPlayer/base/templates/base/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/musicPlayer/base/templates/base/signup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/musicPlayer/base/templates/base/track_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/musicPlayer/base/templates/base/track_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/musicPlayer/base/templates/base/track_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/musicPlayer/base/templates/base/track_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/musicPlayer/base/templates/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/musicPlayer/base/templates/registration/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/musicPlayer/base/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/musicPlayer/base/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/musicPlayer/base/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/musicPlayer/base/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/musicPlayer/musicPlayer/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/musicPlayer/musicPlayer/settings.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
@@ -21,11 +44,18 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "D:/python/code/django/musicPlayer"
+    "last_opened_file_path": "D:/C++/GitHub/ISP-2022-053503/Lab_3/MusicPlayer/musicPlayer/base/static/images"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\C++\GitHub\ISP-2022-053503\Lab_3\MusicPlayer\musicPlayer\base\static\images" />
+      <recent name="D:\C++\GitHub\ISP-2022-053503\Lab_3\MusicPlayer\musicPlayer\base\static\musics" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

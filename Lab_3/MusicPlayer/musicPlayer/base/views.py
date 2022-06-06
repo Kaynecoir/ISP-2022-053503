@@ -6,12 +6,16 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView, FormView, DeleteView, UpdateView
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from .models import Track
+from .models import Track, Listener
 
 
 # Create your views here.
 def home(request):
     return render(request, "base/home.html")
+
+
+def library(request):
+    return render(request, 'base/library.html')
 
 
 class SignUp(CreateView):
@@ -21,7 +25,7 @@ class SignUp(CreateView):
 
 
 class TrackList(LoginRequiredMixin, ListView):
-    model = Track
+    model = Listener.track_list
     context_object_name = 'tracklist'
 
     def get_context_data(self, **kwargs):
@@ -36,7 +40,7 @@ class TrackList(LoginRequiredMixin, ListView):
 
 class TrackDetail(DetailView):
     model = Track
-    context_object_name = 'tracklist'
+    context_object_name ='track'
     template_name = 'base/track_detail.html'
 
 
@@ -52,7 +56,7 @@ class TrackCreate(CreateView):
 
 
 class TrackUpdate(UpdateView):
-    model = Track
+    model = Listener.track_list
     fields = ['title', 'artist', 'genre', 'description']
     success_url = reverse_lazy('home')
 
@@ -66,3 +70,17 @@ class TrackDelete(LoginRequiredMixin, DeleteView):
 class AboutSite(ListView):
     model = Track
     template_name = 'base/about.html'
+
+
+class TrackListView(ListView):
+    model = Track
+    template_name = 'base/home.html'
+    context_object_name = 'tracks'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        search_input = self.request.GET.get('search-area') or ''
+        if search_input:
+            context['tracks'] = context['tracks'].filter(title__icontains=search_input) | context['tracks'].filter(artist__icontains=search_input)
+            context['search_input'] = search_input
+        return context

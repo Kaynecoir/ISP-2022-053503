@@ -9,7 +9,8 @@
       {{ form.as_p }}
       <input type="submit" value="Войти">
     </form>
-    <a href="{% url 'home' %}" type="button">Вернуться на главную</a>
+    <hr>
+    <a href="{% url 'home' %}">Вернуться на главную</a>
     <a href="{% url 'signup' %}">Зарегистрироваться</a>
 </div>
 {% endblock %}

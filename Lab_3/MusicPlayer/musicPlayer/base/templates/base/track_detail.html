@@ -3,17 +3,16 @@
 
 <div id="UpperHeader">
     {% if user.is_authenticated %}
-        <p>Приветствую, {{user.username}}!</p>
-        <a href="{% url 'logout' %}">Выйти</a>
+        <h3 align="center">Приветствую, {{user.username}}!</h3>
+        <a align="right" href="{% url 'logout' %}">Выйти</a>
     {% else %}
-        <a href="{% url 'login' %}">Логин</a>
+        <a align="right" href="{% url 'login' %}">Логин</a>
     {% endif %}
 </div>  
 <hr>
 
-
-<h1>Музыкальный проигрыватель</h1>
 <a href="{% url 'home' %}">Назад на Главную</a>
+<p></p>
 <table class="CenterTable">
     <tr>
         <td>Название:</td>
@@ -37,8 +36,9 @@
             <td>Отсутсвует.</td>
         {% endif %}
     </tr>
-</table>    
-
+</table>
+<p></p>
+<hr>
 <div class="audioDiv" >
     <audio src="/static/musics/{{track.audioFile}}" type="audio/mpeg" controls></audio>
 </div>  
