@@ -1,23 +1,20 @@
 {% extends 'base/base.html' %}
 {% block content %}
+<table>
+    <tr>
+        <td><a href="{% url 'track-delete' track.id %}">Удалить</a></td>
+        <td><a href="{% url 'home' %}">Главная</a></td>
+        <td><a href="{% url 'track' track.id %}">Назад</a></td>
+    </tr>
+</table>
 
-    <div id="UpperHeader">
-        {% if request.user.is_authenticated %}
-            <p>Приветствую, {{user.username}}!</p>
-            <a href="{% url 'logout' %}">Выйти</a>
-        {% else %}
-            <a href="{% url 'login' %}">Логин</a>
-        {% endif %}
-    </div>  
-    <hr>
-
-    <h1>MusicPlayer</h1>
-    <a href="{% url 'home' %}">Назад на Главную</a>
-    <div id="FormDiv">
+<p></p>
+    <div id="TrackFormDiv">
         <form method="POST" action="">
             {% csrf_token %}
             {{form.as_p}}
             <input type="submit" value="Submit">
+            <p></p>
         </form>
     </div>
 {% endblock content %}

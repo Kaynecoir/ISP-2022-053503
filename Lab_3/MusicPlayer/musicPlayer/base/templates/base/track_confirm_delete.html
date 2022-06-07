@@ -2,11 +2,15 @@
 {%  block content %}
 
 <div id="UpperHeader">
-    {% if request.user.is_authenticated %}
-        <p>Welcome, {{request.user}}!</p>
-        <a href="{% url 'logout' %}">Выйти</a>
-    {% else %}
-        <a href="{% url 'login' %}">Логин</a>
+    {% if user.is_authenticated %}
+        <h3 align="center">Приветствую, {{user.username}}!</h3>
+        <table>
+            <tr>
+                <td><a href="{% url 'track-update' track.id %}">Назад</a></td>
+                <td></td>
+                <td><a align="right" href="{% url 'logout' %}">Выйти</a></td>
+            </tr>
+        </table>
     {% endif %}
 </div>  
 <hr>
@@ -16,6 +20,7 @@
         {% csrf_token %}
         <p>Вы уверены, что хотите удалить этот трек?</p>
         <input type="submit" value="Удалить" />
+        <p></p>
     </form>
 </div>
 {% endblock content %}

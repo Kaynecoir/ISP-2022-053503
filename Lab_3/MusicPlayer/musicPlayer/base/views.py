@@ -46,6 +46,7 @@ class TrackDetail(DetailView):
 
 class TrackCreate(CreateView):
     model = Track
+    context_object_name = 'track'
     template_name = 'base/track_create.html'
     fields = ['title', 'artist', 'genre', 'description']
     success_url = reverse_lazy('home')
@@ -56,14 +57,17 @@ class TrackCreate(CreateView):
 
 
 class TrackUpdate(UpdateView):
-    model = Listener.track_list
+    model = Track
+    context_object_name = 'track'
+    template_name = 'base/track_form.html'
     fields = ['title', 'artist', 'genre', 'description']
     success_url = reverse_lazy('home')
 
 
-class TrackDelete(LoginRequiredMixin, DeleteView):
+class TrackDelete(DeleteView):
     model = Track
-    context_object_name = 'tracklist'
+    context_object_name = 'track'
+    template_name = 'base/track_confirm_delete.html'
     success_url = reverse_lazy('home')
 
 

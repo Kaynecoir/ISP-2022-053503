@@ -4,9 +4,22 @@
 <div id="UpperHeader">
     {% if user.is_authenticated %}
         <h3 align="center">Приветствую, {{user.username}}!</h3>
-        <a align="right" href="{% url 'logout' %}">Выйти</a>
+        <table>
+            <tr>
+                <td>{% if user.is_superuser %}<a href="{% url 'track-update' track.id %}">Редактировать</a>{% endif %}</td>
+                <td></td>
+                <td><a align="right" href="{% url 'logout'  %}">Выйти</a></td>
+            </tr>
+        </table>
+
     {% else %}
-        <a align="right" href="{% url 'login' %}">Логин</a>
+        <table>
+            <tr>
+                <td></td>
+                <td></td>
+                <td><a align="right" href="{% url 'login' %}">Логин</a></td>
+            </tr>
+        </table>
     {% endif %}
 </div>  
 <hr>
@@ -18,16 +31,19 @@
         <td>Название:</td>
         <td>{{track.title}}</td>
     </tr>
+    <tr><td><p></p></td></tr>
     <tr>
         <td>Исполнитель:</td>
         <td>{{track.artist}}</td>
     </tr>
+    <tr><td><p></p></td></tr>
     <tr>
         <td>Жанр:</td>
             {%for item in track.genre.all%}
             <td>{{item}};</td>
             {% endfor %}
     </tr>
+    <tr><td><p></p></td></tr>
     <tr>
         <td>Описание:</td>
         {% if track.description %}

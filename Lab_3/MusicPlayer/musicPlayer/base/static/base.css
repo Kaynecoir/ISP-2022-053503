@@ -1,21 +1,14 @@
 body {
     background: linear-gradient( rgb(0, 0, 0) 60%, rgb(0, 0, 125));
-    color: rgb(0, 0, 180);
+    color: rgb(0, 0, 200);
     flex: 1 0 auto;
     min-height: 100vh;
     text-align: center;
 }
 #MainDiv {
+    color: rgb(0, 0, 200);
     border: 0px;
     text-align: right;
-}
-#GlobalDiv {
-    border: 4px solid rgb(0, 0, 125);
-    background: rgb(0, 0, 0);
-    font-size: large;
-    margin-right: 20px;
-    border-radius: 5px;
-    margin: auto;
 }
 .footer {
     border: 0px solid rgb(125, 0, 125);
@@ -38,11 +31,11 @@ body {
     flex: 0 0;
 }
 .container {
-    width:  80%;
-    padding: 20px;
+    width:  60%;
+    padding-left: 20px;
     padding-top: 5px;
-    -webkit-box-shadow: 13px 13px 13px 13px rgba(0, 0, 125, 0.21);
-    box-shadow: 13px 13px 13px 13px rgba(0, 0, 125, 0.21);
+    -webkit-box-shadow: 10px 10px 10px 10px rgba(0, 0, 125, 0.21);
+    box-shadow: 10px 10px 10px 10px rgba(0, 0, 125, 0.21);
     font-size: large;
     font-family: 'Akshar', sans-serif;
     font-family: 'Oswald', sans-serif;
@@ -50,7 +43,7 @@ body {
     flex-direction: column;
     border: 4px solid rgb(0, 0, 125);
     background-color: rgb(0, 0, 0);
-    margin-right: 20px;
+    margin-right: 0px;
     border-radius: 5px;
     margin: auto;
 }
@@ -60,12 +53,29 @@ hr {
 }
 
 td {
+    color: rgb(0, 0, 200);
     border: 0px solid rgb(100, 0, 0);
     text-align: center;
-    width: 1000px;
+    width: 500px;
 }
 a {
-    color: blue;
     text-decoration: none;
+    color: rgb(0, 0, 200);
     padding: 5px;
+}
+input[type=button], input[type=submit] {
+    background-color: black;
+    color: rgb(0, 0, 200);
+    border: 1px solid rgb(0, 0, 180);
+    -webkit-box-shadow: 2px 2px 2px 2px rgba(0, 0, 125, 0.21);
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 125, 0.21);
+    padding: 6px 18px;
+}
+input[type=text] {
+    background-color: black;
+    color: rgb(0, 0, 200);
+    border: 1px solid rgb(0, 180, 180);
+    border-radius: 1px;
+    padding: 6px 18px;
 }
