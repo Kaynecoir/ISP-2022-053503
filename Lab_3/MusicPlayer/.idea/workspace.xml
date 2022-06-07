@@ -3,18 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ba3d5601-085f-470a-b644-892bdb93bb88" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/musicPlayer/base/static/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/musicPlayer/base/static/base.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/musicPlayer/base/templates/base/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/musicPlayer/base/templates/base/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/musicPlayer/base/templates/base/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/musicPlayer/base/templates/base/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/musicPlayer/base/templates/base/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/musicPlayer/base/templates/base/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/musicPlayer/base/templates/base/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/musicPlayer/base/templates/base/signup.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/musicPlayer/base/templates/base/track_confirm_delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/musicPlayer/base/templates/base/track_confirm_delete.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/musicPlayer/base/templates/base/track_create.html" beforeDir="false" afterPath="$PROJECT_DIR$/musicPlayer/base/templates/base/track_create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/musicPlayer/base/templates/base/track_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/musicPlayer/base/templates/base/track_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/musicPlayer/base/templates/base/track_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/musicPlayer/base/templates/base/track_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/musicPlayer/base/templates/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/musicPlayer/base/templates/registration/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/musicPlayer/base/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/musicPlayer/base/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/musicPlayer/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/musicPlayer/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/musicPlayer/base/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/musicPlayer/base/tests.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
